@@ -8,11 +8,17 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    //create boundaries
+    private static final LatLngBounds MQUBounds = new LatLngBounds(
+            new LatLng(-33.775032, 151.107982), new LatLng(-33.775032, 151.113982));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,25 +59,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng MQUW5Carpark = new LatLng(-33.774131, 151.109762);
         LatLng MQUHearingHub = new LatLng(-33.776934, 151.112067);
 
-        //Create Boundary
-        //MQUBounds = new LatLngBounds( new LatLng(-35.0, 138.58), new LatLng(-34.9, 138.61));
-
         // Move camera
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(MQU,15));
-        //mMap.setLatLngBoundsForCameraTarget(MQUBounds);
+        mMap.setLatLngBoundsForCameraTarget(MQUBounds);
+        mMap.setMinZoomPreference(14.5f);
 
         // Place markers
-        mMap.addMarker(new MarkerOptions().position(MQUStation).title("University Station"));
-        mMap.addMarker(new MarkerOptions().position(MQUResearchPark).title("Research Park: Innovation Road"));
-        mMap.addMarker(new MarkerOptions().position(MQUHospital).title("University Hospital"));
-        mMap.addMarker(new MarkerOptions().position(MQUManagementDrive).title("Management Drive"));
-        mMap.addMarker(new MarkerOptions().position(MQUCulloden).title("Culloden Road"));
-        mMap.addMarker(new MarkerOptions().position(MQUVillage).title("University Village"));
-        mMap.addMarker(new MarkerOptions().position(MQUDayman).title("Dayman Place"));
-        mMap.addMarker(new MarkerOptions().position(MQUHadenfield).title("Hadenfield Avenue, Y3A"));
-        mMap.addMarker(new MarkerOptions().position(MQULibrary).title("University Library"));
-        mMap.addMarker(new MarkerOptions().position(MQUW5Carpark).title("West 5 carpark"));
-        mMap.addMarker(new MarkerOptions().position(MQUHearingHub).title("Australian Hearing Hub"));
+        mMap.addMarker(new MarkerOptions().position(MQUStation).title("University Station").icon(BitmapDescriptorFactory.fromResource(R.drawable.mqbusico)));
+        mMap.addMarker(new MarkerOptions().position(MQUResearchPark).title("Research Park: Innovation Road").icon(BitmapDescriptorFactory.fromResource(R.drawable.mqbusico)));
+        mMap.addMarker(new MarkerOptions().position(MQUHospital).title("University Hospital").icon(BitmapDescriptorFactory.fromResource(R.drawable.mqbusico)));
+        mMap.addMarker(new MarkerOptions().position(MQUManagementDrive).title("Management Drive").icon(BitmapDescriptorFactory.fromResource(R.drawable.mqbusico)));
+        mMap.addMarker(new MarkerOptions().position(MQUCulloden).title("Culloden Road").icon(BitmapDescriptorFactory.fromResource(R.drawable.mqbusico)));
+        mMap.addMarker(new MarkerOptions().position(MQUVillage).title("University Village").icon(BitmapDescriptorFactory.fromResource(R.drawable.mqbusico)));
+        mMap.addMarker(new MarkerOptions().position(MQUDayman).title("Dayman Place").icon(BitmapDescriptorFactory.fromResource(R.drawable.mqbusico)));
+        mMap.addMarker(new MarkerOptions().position(MQUHadenfield).title("Hadenfield Avenue, Y3A").icon(BitmapDescriptorFactory.fromResource(R.drawable.mqbusico)));
+        mMap.addMarker(new MarkerOptions().position(MQULibrary).title("University Library").icon(BitmapDescriptorFactory.fromResource(R.drawable.mqbusico)));
+        mMap.addMarker(new MarkerOptions().position(MQUW5Carpark).title("West 5 carpark").icon(BitmapDescriptorFactory.fromResource(R.drawable.mqbusico)));
+        mMap.addMarker(new MarkerOptions().position(MQUHearingHub).title("Australian Hearing Hub").icon(BitmapDescriptorFactory.fromResource(R.drawable.mqbusico)));
 
 
 
