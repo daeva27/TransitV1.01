@@ -78,6 +78,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(MQUHearingHub).title("Australian Hearing Hub").icon(BitmapDescriptorFactory.fromResource(R.drawable.mqbusico)));
 
 
+        //TESTING
+
 
     }
 }
